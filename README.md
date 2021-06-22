@@ -1,7 +1,7 @@
 # complexpaths
 
 This repository contains: 
--	Raw Addhealth Topologies (82 adolescent friend networks) 
+-	Raw edgelists of Addhealth topologies (82 adolescent friend networks) 
 -	The largest connected component extracted from each Addhealth topology 
 -	An R script that calculates complex path length and complex centrality for all nodes in a given graph g (this includes methods for parallelization). 
 -	An R script that replicates all of the figures from the manuscript and supplementary material using the raw simulation data generated for this experiment (data provided below) 
