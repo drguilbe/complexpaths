@@ -5,7 +5,7 @@ This repository contains:
 -	Raw edgelists of Addhealth topologies (82 adolescent friend networks).
 -	The largest connected component extracted from each Addhealth topology. 
 -	An R script that replicates all of the figures from the manuscript and supplementary material using the raw simulation data generated for this experiment (data provided below).
--	An R script that calculates complex path length and complex centrality for all nodes in a given graph g (this includes methods for parallelization). 
+-	An R script that (i) calculates complex path length and complex centrality for all nodes in a given graph g (including methods for parallelization), and that (ii) uses these functions to replicate our main results simulated and empirical graphs (from the Addhealth dataset). 
 
 Features in development: 
 - A Python code base for reproducing all of the measures defined in Guilbeault & Centola (2021). In the long term, these measures may be released as a package in Python and/or R.
