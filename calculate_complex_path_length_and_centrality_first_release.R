@@ -139,7 +139,7 @@ for(i in 1:length(graphs)){ #
     model_output_list <- clusterMap(cluster, get_complex, seed=1:N, MoreArgs=list(N=N, g=g,gmat=gmat,thresholds=thresholds,num_seeds_to_add=num_seeds_to_add,model_output_list=model_output_list)) 
     print(proc.time() - start_time) #view runtime 
     model_output_list_df <- as.data.frame(do.call('rbind', model_output_list))
-    colnames(model_output_list_df)<-c( "seed","N","num_seeds", "num_adopters","PLci")
+    colnames(model_output_list_df)<-c( "seed","N","num_neigh_seeds", "num_adopters","PLci")
     model_output_list_df$PLci_norm<-min_max_norm(model_output_list_df$PLci)
     model_output_parallel_full<-merge(model_output_list_df, simple_centralities_df, by="seed") #map to simple centralities of seeds
     model_output_parallel_full$threshold<-thresholds; model_output_parallel_full$T_dist<-T_dist; model_output_parallel_full$T_type<-T_type
@@ -187,6 +187,6 @@ start_time <- proc.time()
 model_output_list<-lapply(1:N, function(x) get_complex(x, N, g, gmat, thresholds, num_seeds_to_add, model_output_list)) #Run model; change 1:N to any subset of specific seeds to narrow search
 print(proc.time() - start_time) #view runtime 
 model_output_df <- as.data.frame(Reduce(rbind, model_output_list))
-colnames(model_output_df)<-c("seed","N","num_seeds", "num_adopters","PLci")
+colnames(model_output_df)<-c("seed","N","num_neigh_seeds", "num_adopters","PLci")
 model_output_df$PLci_norm<-min_max_norm(model_output_df$PLci)
 model_output_full<-merge(model_output_df, simple_centralities_df, by="seed") #map to simple centralities of seed
