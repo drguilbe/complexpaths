@@ -60,8 +60,12 @@ get_complex<-function(seed, N, g, gmat, thresholds, num_seeds_to_add, model_outp
     if(need_seeds){#initiate clustered Seeding
       seeds<-clustered_seeding(seeds, g, num_seeds_needed)
       num_seeds_needed<-num_seeds_i - length(seeds)
-      need_seeds<-num_seeds_needed > 0}else{seeds<-c(seed, sample(seeds,num_seeds_i))}
-  }else{seeds=seed}
+      need_seeds<-num_seeds_needed > 0}else if(length(seeds)>1){
+        seeds<-c(seed, sample(seeds,num_seeds_i))
+      }else{
+        seeds<-c(seed, seeds)
+      }
+  }
   
   activated<-logical(N); activated[seeds]<-TRUE
   gmat_simulation[seeds,]<-1; gmat_simulation[,seeds]<-1
